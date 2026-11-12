@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from pymongo.errors import PyMongoError
 
 from bson import ObjectId
@@ -21,7 +21,7 @@ def serialize_book(book):
 
 @app.route("/")
 def home():
-    return "Welcome to the Book Review App!"
+    return render_template("index.html")
 
 
 @app.route("/api/books", methods = ["GET"])
